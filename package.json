@@ -20,6 +20,7 @@
   "homepage": "https://github.com/goodeggs/npm-copy",
   "bugs": "https://github.com/goodeggs/npm-copy/issues",
   "dependencies": {
+    "@types/node": "^13.7.0",
     "fibers": "^2.0.0",
     "fibrous": "^0.4.0",
     "lodash": "^3.10.0",
@@ -28,14 +29,13 @@
   },
   "devDependencies": {
     "chai": "^3.0.0",
-    "coffee-script": ">=1.8.x",
     "mocha": "^2.2.5",
     "mocha-sinon": "^1.1.4",
-    "sinon": "^1.15.3"
+    "sinon": "^1.15.3",
+    "typescript": "^3.7.5"
   },
   "scripts": {
-    "compile": "coffee --bare --compile --output lib/ src/",
-    "prepublish": "npm run compile",
+    "compile": "tsc src/cli.ts --outDir lib/",
     "pretest": "npm run compile",
     "test": "mocha"
   },
