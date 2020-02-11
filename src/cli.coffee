@@ -8,6 +8,7 @@ module.exports = fibrous (argv) ->
 
   [to, from] = for dir in ['to', 'from']
     url: argv[dir]
+    host: argv["#{dir}-host"]
     auth:
       token: argv["#{dir}-token"]
       username: argv["#{dir}-username"]
@@ -50,7 +51,12 @@ module.exports = fibrous (argv) ->
       remoteTarball = npm.sync.fetch dist.tarball, auth: from.auth
 
       try
-        res = npm.sync.publish "#{to.url}/#{moduleName}", auth: to.auth, metadata: newMetadata, access: 'public', body: remoteTarball
+        if to.host =='verdaccio'
+          publishUrl = to.url
+        else
+          publishUrl = "#{to.url}/#{moduleName}"
+        
+        res = npm.sync.publish "#{publishUrl}", auth: to.auth, metadata: newMetadata, access: 'public', body: remoteTarball
         console.log "#{moduleName}@#{semver} cloned"
       catch e
         remoteTarball.connection.end() # abort
