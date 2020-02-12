@@ -1,10 +1,11 @@
 {
   "name": "npm-copy",
-  "version": "2.2.0",
+  "version": "2.2.2",
   "description": "A utility to clone packages from one NPM server to another",
   "author": "Good Eggs <open-source@goodeggs.com>",
   "contributors": [
-    "Bob Zoller <bob@zoller.us>"
+    "Bob Zoller <bob@zoller.us>",
+    "Jason Zheng <tso1158687@gmail.com>" 
   ],
   "license": "MIT",
   "keywords": [
@@ -38,8 +39,5 @@
     "compile": "tsc src/cli.ts --outDir lib/",
     "pretest": "npm run compile",
     "test": "mocha"
-  },
-  "publishConfig": {
-    "registry": "http://registry.npmjs.org"
   }
 }

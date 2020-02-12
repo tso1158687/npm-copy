@@ -1,5 +1,9 @@
 ## Change Log
 
+### v2.2.2 (2020/02/12 10:34 +08:00)
+remove coffeescript and add typescript.
+add keyword "--to-host" supprt publish package to verdaccio
+
 ### v2.1.0 (2015/07/09 16:04 +00:00)
 - [59bab83](https://github.com/goodeggs/npm-copy/commit/59bab83d24757abc16cdd8dafbaec78d6563f527) do not sync versions that already exist on the destination (@bobzoller)
 

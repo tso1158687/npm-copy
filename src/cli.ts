@@ -133,12 +133,9 @@ module.exports = fibrous(function(argv) {
             auth: from.auth
           });
           try {
-            if (to.host === "verdaccio") {
-              publishUrl = to.url;
-            } else {
-              publishUrl = to.url + "/" + moduleName;
-            }
-            res = npm.sync.publish("" + publishUrl, {
+            const publishUrl =
+              to.host === "verdaccio" ? to.url : `${to.url}/moduleName`;
+            res = npm.sync.publish(publishUrl, {
               auth: to.auth,
               metadata: newMetadata,
               access: "public",
